@@ -1,0 +1,36 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Hello World</title>
+    <body>
+        <script src="pixi.min.js"></script>
+        <script>
+
+            //Test that Pixi is working
+            console.log(PIXI);
+            //create the renderer
+            var renderer = PIXI.autoDetectRenderer(256, 256, {antialias: false, transparent: false, resolution: 1});
+            
+            //Add the canvas to the HTML document
+            document.body.appendChild(renderer.view);
+            
+            //Create a continaer object called the 'state'
+            var stage = new PIXI.Container();
+            
+            //Tell the renderer to render the stage
+            renderer.render(stage);
+            renderer.view.style.border = "1px dashed black";
+            //change background color
+            renderer.backgroundColor = 0x061639;
+            //another way to use width and height
+            //renderer.view.width/height
+            
+            //change size of the canvas
+            renderer.autoResize = true;
+            renderer.resize(window.innerWidth, window.innerHeight);
+            
+            //to fill the entire window apply CSS styling
+            renderer.view.style.position = "absolute";
+            renderer.view.style.display = "block";
+            
+</script>
+    </body>
