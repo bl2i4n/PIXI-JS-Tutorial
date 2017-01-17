@@ -46,8 +46,37 @@
                 treasure.y = stage.height / 2 - treasure.height / 2;
                 stage.addChild(treasure);
                 
+                door = new Sprite(id["door.png"]);
+                door.position.set(32, 0);
+                stage.addChild(door);
+                
+                
+                var numberOfBlobs = 6,
+                    spacing = 48,
+                    xOffset = 150;
+                    
+                for (var i = 0; i < numberOfBlobs; i++){
+                    var blob = new Sprite(id["blob.png"]);
+                    
+                    //space each blob horizontally according to the spacing value
+                    //xoffset determines the point from the left of the screen
+                    var x = spacing * i + xOffset;
+                    
+                    //give blob a random y position
+                    var y = randomInt(0, stage.height - blob.height);
+                    
+                    blob.x = x;
+                    blob.y = y;
+                    
+                    stage.addChild(blob);
+                    
+                }
+                
                 renderer.render(stage);
+            }
             
+            function randomInt(min, max){
+                return Math.floor(Math.random() * (max - min + 1 )) + min;
             }
             
 </script>
